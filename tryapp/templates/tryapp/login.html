@@ -1,0 +1,157 @@
+{%  load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .imagee {
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        h3 {
+            color: white;
+        }
+
+        p {
+            color: white;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        .form-area {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+        }
+
+        h2 {
+            margin: 0;
+            padding: 0 0 30px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .form-area p {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .form-area input,
+        select {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .form-area input[type=text],
+        .form-area input[type=password] {
+            border: none;
+            border-bottom: 1px solid #ffffff;
+            background-color: transparent;
+            outline: none;
+            height: 40px;
+            color: #ffffff;
+            display:16px;
+        }
+        .form-area input[type=email] {
+            border: none;
+            border-bottom: 1px solid #ffffff;
+            background-color: transparent;
+            outline: none;
+            height: 40px;
+            color: #ffffff;
+            display:16px;
+        }
+
+        ::placeholder {
+            color: white;
+        }
+
+        .form-area select {
+            margin-top: 20px;
+            padding: 10px 0;
+        }
+
+        .form-area input[type=submit] {
+            border: none;
+            height: 40px;
+            outline: none;
+            color: white;
+            font-size: 15px;
+            background-color: tomato;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        .form-area input[type=submit]:hover {
+            background-color: cyan;
+            color: white;
+        }
+
+        .form-area a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+
+<body>
+
+     <form method="POST"> 
+     
+    <img src="{% static 'cebsApp/img/backgroundimage.jpg' %}" class="imagee">
+    <div class="form-area" style="font-family: 'Open Sans', sans-serif;">
+        <h2>Login</h2>
+        <form method="POST" action="{% url 'home' %}">
+            {% csrf_token %}
+            {% for field in login_form %}
+<p>
+    {{field.label_tag}}
+    {{field}}
+</p>         
+{% endfor %}
+            <!-- <p>Email</p>
+            
+            <input type="email" name="email" placeholder="Enter your email" required>
+           <p>Password</p>
+        
+            <input type="password" name="password" placeholder="Enter your password" required>   -->
+        
+            <button type="submit" class="btn btn-lg btn-block login-button"
+            style="color: black;">Login</button></form><br>
+            <div>
+                <a href="{% url 'signup' %}">Don't have an account?
+                </a>
+                
+            </div>
+            
+        </form>
+        {% for message in messages %}
+        <p id="messages">{{message}}</p>
+    {% endfor %}
+   
+    
+    <div>
+                
+</body>
+
+</html>
+

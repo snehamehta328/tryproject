@@ -1,0 +1,161 @@
+{% load static %}
+<!--<html>
+    <head>
+        <title>Add Product Form</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      </head>
+    <body>
+        <form method="POST" style="margin-left: 5px;"><br>
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-primary" type="submit">Add</button>
+            <button class="btn btn-primary"><a href="{% url 'view' %}" style="color: white;">View</a></button>
+        </form>
+    </body>
+    
+</html>-->
+
+
+{% load static%}
+<html>
+
+<head>
+    <title>Products</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        .imagee {
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        h3 {
+            color: white;
+        }
+
+        p {
+            color: white;
+        }
+
+        .form-area {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 660px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+        }
+
+        h3 {
+            margin-top: 2px;
+            padding: 0 0 8px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .form-area p {
+            margin-bottom: 2px;
+            padding: 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .form-area input,
+        select {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .form-area input[type=text],
+        .form-area input[type=password],
+        .form-area input[type=number] {
+            border: none;
+            border-bottom: 1px solid #ffffff;
+            background-color: transparent;
+            outline: none;
+            height: 40px;
+            color: #ffffff;
+        }
+
+        .form-area textarea {
+            border: none;
+            border-bottom: 1px solid #ffffff;
+            background-color: transparent;
+            outline: none;
+            height:70px;
+            color: #ffffff;
+        }
+
+        .form-area select {
+            margin-top: 20px;
+            padding: 10px 0;
+        }
+
+        .form-area input[type=submit] {
+            border: none;
+            height: 60px;
+            outline: none;
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 15px;
+            background-color: white;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        .form-area input[type=submit]:hover {
+            color: rgba(0, 0, 0, 0.5);
+            background-color: cyan;
+            color: white;
+        }
+
+        .form-area a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+        <img src="{% static 'cebsApp/img/backgroundimage.jpg' %}" class="imagee">
+        <div class="form-area" style="font-family: 'Open Sans', sans-serif;">
+            <h3>Edit Product</h3>
+            <form method="POST">
+                {% csrf_token %}
+                <p>Category</p>
+                {{form.category}}
+                <p>Name</p>
+                {{form.productname}}
+                <p>Price</p>
+                {{form.price}}
+                <p>Description</p>
+                {{form.description}}
+                <br><br>
+                <p>Image</p>
+                {{form.image}}
+                <button type="submit" class="btn btn-lg btn-block login-button"
+                style="color: black; background-color: white;">Add</button>    
+            </form>
+
+        </div>
+</body>
+
+</html>
