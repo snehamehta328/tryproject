@@ -117,7 +117,7 @@
 
      <form method="POST"> 
      
-    <img src="{% static 'cebsApp/img/backgroundimage.jpg' %}" class="imagee">
+    <img src="{% static 'tryapp/img/backgroundimage.jpg' %}" class="imagee">
     <div class="form-area" style="font-family: 'Open Sans', sans-serif;">
         <h2>Login</h2>
         <form method="POST" action="{% url 'home' %}">
@@ -128,13 +128,6 @@
     {{field}}
 </p>         
 {% endfor %}
-            <!-- <p>Email</p>
-            
-            <input type="email" name="email" placeholder="Enter your email" required>
-           <p>Password</p>
-        
-            <input type="password" name="password" placeholder="Enter your password" required>   -->
-        
             <button type="submit" class="btn btn-lg btn-block login-button"
             style="color: black;">Login</button></form><br>
             <div>
@@ -150,6 +143,17 @@
    
     
     <div>
+        <script>
+        
+        var form_fields = document.getElementsByTagName('input')
+        form_fields[1].placeholder='Enter your email';
+        form_fields[2].placeholder='Enter your password';
+        
+        
+        for (var field in form_fields){	
+        form_fields[field].className += ' form-control'
+        }
+        </script>
                 
 </body>
 
