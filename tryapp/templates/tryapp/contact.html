@@ -1,0 +1,149 @@
+{% load static %}
+<html>
+
+<head>
+
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+    .bor {
+      height: 390px;
+      width: 170px;
+    }
+    .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   padding: 20px;
+   background-color:black;
+   color: gray;
+   text-align: center;
+}
+    #img1 {
+      width: 100px;
+      height: 80px;
+    }
+
+    .stylingg {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+
+    .styling {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: 200px;
+      width: 160px;
+    }
+
+    ptr {
+      cursor: pointer;
+    }
+    #oh {
+      width:125px;
+    }
+  </style>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="font-family: 'Open Sans', sans-serif;">
+    <a href="{% url 'home' %}"><img id="img1" src="{% static 'tryapp/img/logo.jpeg' %}" alt="cebs"></a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <div class="input-group mb-3 stylingg" style="width:400px;">
+      <input type="text" class="form-control" placeholder="What you're looking for?" aria-label="Recipient's username"
+        aria-describedby="basic-addon2">
+    </div>
+    <div class="input-group-append">
+      <button type="button" class="btn btn-secondary"
+        style="margin-top:-10px;  background-color:#6b249b;">Search</button>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link"
+            href="{% url 'home' %}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'profile' %}">My
+            Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+            href="{% url 'cart' %}">Cart</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
+
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="card-deck">
+    <div class="card">
+      <img src="{% static 'tryapp/img/phone.jpeg' %}" style="margin-left:80px; width:160px;height:160px;" class="card-img-top" alt="tele">
+     <br><br>
+      <div class="card-body">
+        <h5 class="card-title" style="font-size: medium;"><b>Contact</b></h5>
+        <p class="card-text" style="font-size: medium;">+91 94630 48000</p>
+        <p class="card-text" style="font-size: medium;">+91 94638 80650</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="{% static 'tryapp/img/email.jpeg' %}" style="margin-left:100px; width:160px;height:160px;" class="card-img-top" alt="email">
+      <br><br>
+      <div class="card-body">
+        <h5 class="card-title" style="font-size: medium;"><b>Email</b></h5>
+        <p style="font-size: medium;">ankita@cebs.com</p>
+        <p style="font-size: medium;">sneha@cebs.com</p>
+      </div>
+    </div>
+    <div class="card">
+        <img src="{% static 'tryapp/img/address.jpeg' %}" style="margin-left:100px; margin-top: 10px; width:160px;height:160px;" class="card-img-top" alt="email">
+    <br><br>
+       <div class="card-body">
+        <h5 class="card-title" style="font-size: medium;"><b>Address</b></h5>
+        <p style="font-size: medium;">Block No. 98, Industrial Area Chandigarh.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">© 2021 </span><span style="color: white; ">  CEBSShopping.com</span></div>
+     
+</body>
+
+</html>
