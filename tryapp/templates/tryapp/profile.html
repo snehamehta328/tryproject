@@ -6,8 +6,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <meta charset="utf-8">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+<meta charset="utf-8">
 
   <style>
     #img1 {
@@ -24,7 +24,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="font-family: 'Open Sans', sans-serif;">
-      <img id="img1" src="{% static 'cebsApp/img/logo.jpeg' %}" alt="cebs">
+      <img id="img1" src="{% static 'tryapp/img/logo.jpeg' %}" alt="cebs">
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -58,10 +58,10 @@
               href="{% url 'cart' %}">Cart</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </li>
   
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="{% url 'profile' %}">My
               Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -79,42 +79,50 @@
     <div class="card p-3">
       <div>
         <div class="d-flex justify-content-center">
-          <img src="{% static 'cebsApp/img/person.png' %}" class="rouded-circle img-thumbnail"  width="120" height="170" alt="Profile Picture" style="border-radius:100px;margin-left: 1px;">
+          <img src="{% static 'tryapp/img/profilepicture.png' %}" class="rouded-circle img-thumbnail"  width="120" height="170" alt="Profile Picture" style="border-radius:100px;margin-left: 1px;">
         
         </div>
-       
-        <h4><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 15 15">
-          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-        </svg> &nbsp;
-         <span><input type="text" class="pl-2 p-1" placeholder="User name" name="username" value="{{user.username}} "></span></h4>
+        <form method="POST">
+            {% csrf_token %}
+           
+            <p>
+                <!-- {{field.label_tag}} -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+                </svg>&nbsp;&nbsp;&nbsp;
+                <!-- <span><input type="email" class="pl-2 p-1" placeholder="User Mail" name="email" value="{{user.email}} ">
+              </span> -->
+                {{account_form.email}}
+            </p>
+            <hr>
 
-        <hr>
-
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 15 15">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
           </svg>&nbsp;&nbsp;&nbsp;
-          <span><input type="email" class="pl-2 p-1" placeholder="User Mail" name="email" value="{{user.email}} ">
-        </span>
-      <hr>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
-          </svg>&nbsp;&nbsp;&nbsp;
-          <span><input type="text" class="pl-2 p-1" placeholder="User Phone" name="phone_no" value="{{user.phone_no}} ">
-        </span>
-        <br>
-        <div class="d-flex align-items-center mb-1">
-
-          <a href="{% url 'orderh' %}"><button  type="button" class="btn btn-primary btn-md">Order History</button></a>
-        </div>
-      </div>
-      <hr>
-      <!-- <button  type="submit" class="btn btn-primary btn-md">Edit</button> -->
-      <form method="POST" action="{% url 'home' %}">
-        {% csrf_token %}
-      <button type="submit" class="btn btn-primary btn-md">Edit & Save</button>
-
+          {{account_form.username}}
+          </p>
+<hr>
+          <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone" viewBox="0 0 16 16">
+              <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+              <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+      </svg>&nbsp;&nbsp;&nbsp;
+            {{account_form.phone_no}}
+            </p>
+            
+      {% for field in account_form %}
+      {% for error in field.errors %}
+      <p style="color:red;">{{error}}</p>
+      {% endfor %}
+      {% endfor %}
+      {% for message in messages %}
+					<p id="messages" style="color:green;">{{message}}</p>
+				{% endfor %}
+      <button type="submit" class="btn btn-md" style="background-color:#6b249b; color:white;" >Edit & Save</button>
+    </form>
+    
     </div>
   </div>
 

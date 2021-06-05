@@ -1,4 +1,5 @@
  {% load static %}
+
 <html>
 
 <head>
@@ -50,7 +51,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="font-family: 'Open Sans', sans-serif;">
-    <img id="img1" src="{% static 'cebsApp/img/logo.jpeg' %}" alt="cebs">
+    <img id="img1" src="{% static 'tryapp/img/logo.jpeg' %}" alt="cebs">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -75,11 +76,16 @@
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <li class="nav-item" style="font-size:20px;margin-right:50px;">
+            <a class="nav-link">
+            Hello!&nbsp;{{user.username}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+          </li>
+        <!-- <li class="nav-item">
           <a class="nav-link"
             href="{% url 'home' %}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link"
             href="{% url 'cart' %}">Cart</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -90,9 +96,14 @@
             Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{% url 'logout' %}">Logout</a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
+        
       </ul>
     </div>
   </nav>
@@ -104,15 +115,15 @@
     </ol>
     <div class="carousel-inner">
       <div class="item active">
-        <img src="{% static 'cebsApp/img/shop.jpg' %}" alt="Cart Laptop" style="height:450px; width:100%;">
+        <img src="{% static 'tryapp/img/shop.jpg' %}" alt="Cart Laptop" style="height:450px; width:100%;">
       </div>
 
       <div class="item">
-        <img src="{% static 'cebsApp/img/cartlaptop.jpg' %}" alt="Cart" style="height:480px; width:100%;">
+        <img src="{% static 'tryapp/img/cartlaptop.jpg' %}" alt="Cart" style="height:480px; width:100%;">
       </div>
 
       <div class="item">
-        <img src="{% static 'cebsApp/img/cart.jpg' %}" alt="Shopping" style="height:450px; width:100%;">
+        <img src="{% static 'tryapp/img/cart.jpg' %}" alt="Shopping" style="height:450px; width:100%;">
       </div>
     </div>
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -127,6 +138,7 @@
 
 
   <br>
+  
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="font-family: 'Open Sans', sans-serif;">
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
@@ -146,7 +158,7 @@
       </ul>
     </div>
   </nav>
-
+  
   <!--<div class="row mx-0">
   <div class="col-sm-3 p-2" style="font-family: 'Open Sans', sans-serif;">
     <div class="card p-3">
@@ -169,30 +181,48 @@
     </div>
   </div>
 </div>-->
-  <div class="row mx-3">
-    <div class="card">
-      <div class="w-10 m-4 my-2 d-flex flex-wrap">
-        <div class="m-4">
-          <div class="card-deck">
-            {% for product in productss %}
-            <div class="mt-3 mx-auto" style="width:410px;height:600px;">
-              <img class="card-img-top img-fluid styling" style="margin-left: 10px;width:250px;height:250px;"src="{{product.image}}">
-              <div class="card-body">
-                <h5 class="card-title" style="margin-left: -10px;">{{ product.productname }}</h5>
-                <p class="card-text" style="margin-left: -10px;">{{ product.description }}</p>
-                <p class="card-text" style="margin-left: -10px;">Rs. {{ product.price }}</p>
-                <a href="#" class="btn btn-primary" style="margin-left: -10px;">Add To Cart</a><br><br>
-                <a href="#" class="btn btn-primary" style="margin-left: -10px;">Buy Now</a>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </div>
-      </div>
+<div class="row mx-3">
+  <div class="card">
+    <div class="w-10 m-4 my-2 d-flex flex-wrap">
+      <div class="m-4">
+        <div class="card-deck">
+          {% for product in productss %}
+          <div class="mt-3 mx-auto" style="width:410px;height:600px;">
+            <!-- <a href="{% url 'viewdesc' id=product.id %}"><img class="card-img-top img-fluid styling" style="margin-left: 10px;width:250px;height:250px;"src="{{product.image}}"></a> -->
+            <img class="card-img-top img-fluid styling" style="margin-left: 10px;width:250px;height:250px;"src="{{product.image}}">
+            <div class="card-body">
+              <h5 class="card-title" style="margin-left: -10px;">{{ product.productname }}</h5>
+              <!-- <p class="card-text" style="margin-left: -10px;">{{ product.description }}</p> -->
+              <p class="card-text" style="margin-left: -10px;">Rs. {{ product.price }}</p>
+              <!-- <a href="#" class="btn " style="margin-left: -10px;background-color: #6b249b; color:white;">Add To Cart</a><br><br> -->
 
+              <form method="post" action="{% url 'cart' %}">
+                {% csrf_token %}
+        
+                <div class="field has-addons">
+                    <div class="control">
+                        <input type="number" name="quantity" value="1" class="input" min="1">
+                    </div>
+        
+                    <div class="control">
+                        <button class="button is-dark is-uppercase">Add to cart</button>
+                    </div>
+                </div>
+            </form>
+              
+             
+              <a href="#" class="btn " style="margin-left: -10px;background-color: #6b249b; color:white;">Buy Now</a>&nbsp;&nbsp;&nbsp;
+              <a href="{% url 'viewdesc' id=product.id %}" class="btn" style="margin-left: -10px;background-color: #6b249b; color:white;">View Details</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
     </div>
+
   </div>
+</div>
   <!--
 <div class="container-fluid" style="padding: 20px; background-color: black; font-family: 'Open Sans', sans-serif;">
   <div style="text-align: center;"><span style="color: gray; ">© 2021 </span><span style="color: white; ">  CEBSShopping.com</span></div>

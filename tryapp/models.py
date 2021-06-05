@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
-
+from django.db.models.signals import pre_save,post_save
+# from django.dispatch import receiver
+import datetime
 class MyAccountManager(BaseUserManager):
     def create_user(self,email,username,password=None):
         if not email:
@@ -72,3 +74,39 @@ class Product(models.Model):
 
     class Meta:
         db_table="pro"
+
+    # @staticmethod
+    # def get_products_by_id(id):
+    #     return Product.objects.filter(id__in =id)
+
+
+# class Order(models.Model):
+#     product = models.ForeignKey(Product,on_delete=models.CASCADE)
+#     customer = models.ForeignKey(Account,on_delete=models.CASCADE)
+#     quantity = models.IntegerField(default=1)
+#     price = models.IntegerField()
+#     address = models.CharField(max_length=50, default='', blank=True)
+#     phone = models.CharField(max_length=50, default='', blank=True)
+#     date = models.DateField(default=datetime.datetime.today)
+#     status = models.BooleanField(default=False)
+
+#     def placeOrder(self):
+#         self.save()
+    
+#     @staticmethod
+#     def get_orders_by_customer(customer_id):
+#         return Order.objects.filter(customer=customer_id).order_by('-date')   
+# 
+# class Cart(models.Model):
+#     user =models.ForeignKey(Account,on_delete = models.CASCADE)
+#     # product = models.ForeignKey(Product,on_delete = models.CASCADE)
+#     # product_id = models.CharField(max_length=100)
+#     quantity = models.IntegerField()
+#     # status = models.BooleanField(default=False)
+#     # added_on =models.DateTimeField(auto_now_add=True,null=True)
+#     # update_on = models.DateTimeField(auto_now=True,null=True)
+
+#     def __str__(self):
+#         return self.user.username
+
+
